@@ -30,7 +30,7 @@ const Map = ({flights}) => {
                     let element = flights[index];
                     if (element.code === data.code) {
                         update_flight = element;
-                        if (element.destination === element.position){
+                        if (element.destination === data.position){
                             update_flight.positions=[element.origin];
                         } else {
                             update_flight.positions = [...new Set(element.positions)];
