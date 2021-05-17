@@ -131,7 +131,7 @@ const App = () => {
                   <td colspan={f.passengers.length}>
                     {f.passengers.map((p)=>{
                       return(
-                        <td><tr>Nombre {p.name}</tr><tr>Edad: {p.age}</tr></td>
+                        <td><tr>Nombre: {p.name}</tr><tr>Edad: {p.age}</tr></td>
                       )
                     })}
                   </td>
