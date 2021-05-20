@@ -30,10 +30,15 @@ const Map = ({flights}) => {
                     let element = flights[index];
                     if (element.code === data.code) {
                         update_flight = element;
-                        update_flight.positions = [...new Set(element.positions)];
-                        update_flight.positions.push(data.position);
-                    };
-                };
+                        if (element.destination === data.position){
+                            update_flight.positions=[element.origin];
+                        } else {
+                            update_flight.positions = [...new Set(element.positions)];
+                            update_flight.positions.push(data.position);
+                        }
+                    }
+                    
+                }
                 let new_flights = flights.filter((i) => i.code !== data.code);
                 return [...new_flights, update_flight];
                 

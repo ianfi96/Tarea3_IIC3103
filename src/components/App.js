@@ -26,7 +26,7 @@ const App = () => {
             let new_flights = [];
             for (let index = 0; index < data.length; index++) {
               let element = data[index];
-              element.positions =[];
+              element.positions =[element.origin];
               element.color = "#"+ Math.floor(Math.random()*16777215).toString(16);
               new_flights.push(element);
             }
