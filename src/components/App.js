@@ -26,7 +26,7 @@ const App = () => {
             let new_flights = [];
             for (let index = 0; index < data.length; index++) {
               let element = data[index];
-              element.positions =[element.origin];
+              element.positions =[];
               element.color = "#"+ Math.floor(Math.random()*16777215).toString(16);
               new_flights.push(element);
             }
@@ -103,7 +103,7 @@ const App = () => {
       </Row>
       <Row>
         <Button variant="primary" onClick={(e)=>{socket.emit("FLIGHTS");}}>
-          Obtener Información de los vuelos
+          Actualizar Información de los vuelos
         </Button>
         {flightsInfo?(       
           <Table striped bordered hover responsive>

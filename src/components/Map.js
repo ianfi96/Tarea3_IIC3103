@@ -54,18 +54,23 @@ const Map = ({flights}) => {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {flightsInfo ? (        
+        {flightsInfo ? (       
             flightsInfo.map(f => {
             return(
                 <React.Fragment>
-                <Marker position={f.positions[f.positions.length-1]} key={f.code}>
-                    <Popup>
-                        {f.code}
-                    </Popup>
-                </Marker>
-                <Polyline positions={f.positions} pathOptions={{color: "black"}}/>
+                {f.positions.length>0?(  
+                    <>              
+                    <Marker position={f.positions[f.positions.length-1]} key={f.code}>
+                        <Popup>
+                            {f.code}
+                        </Popup>
+                    </Marker>
+                    <Polyline positions={f.positions} pathOptions={{color: "black"}}/>
+                    </>
+                    ):(
+                        null
+                        )}
                 </React.Fragment>
-                
         )})):null}
         {flightsInfo ? (
             flightsInfo.map(f=>{
